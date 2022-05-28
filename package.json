@@ -4,18 +4,17 @@
   "description": "Boliler plate for typescript projects with functional paradigm",
   "main": "index.js",
   "scripts": {
-    "build": "rimraf dist && tsc && npm run build",
-    "serve": "cross-env NODE_ENV=development concurrently \"tsc --watch\" \"nodemon -r dotenv/config -q dist/index.js\"",
-    "start": "cross-env NODE_ENV=production node dist/index.js",
+    "build": "rimraf dist && tsc",
+    "serve": "nodemon -r dotenv/config src/index.ts",
+    "start": "node dist/index.js",
     "test": "jest"
   },
   "author": "Lucero Sergio Alejandro",
   "license": "MIT",
   "dependencies": {
-    "@types/ajv": "^1.0.0",
-    "ajv": "^8.11.0",
     "cors": "^2.8.5",
     "crypto-js": "^4.1.1",
+    "debug": "^4.3.4",
     "express": "^4.17.1",
     "helmet": "^4.6.0",
     "http-errors": "^2.0.0",
@@ -29,9 +28,11 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@types/ajv": "^1.0.0",
     "@types/body-parser": "^1.19.2",
     "@types/cors": "^2.8.12",
     "@types/crypto-js": "^4.1.1",
+    "@types/debug": "^4.1.7",
     "@types/express": "^4.17.13",
     "@types/http-errors": "^1.8.2",
     "@types/jest": "^27.0.2",
@@ -46,7 +47,6 @@
     "@typescript-eslint/eslint-plugin": "^5.15.0",
     "@typescript-eslint/parser": "^5.15.0",
     "concurrently": "^6.3.0",
-    "cross-env": "^7.0.3",
     "dotenv": "^10.0.0",
     "eslint": "^8.11.0",
     "jest": "^27.5.1",
