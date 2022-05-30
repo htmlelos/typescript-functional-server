@@ -1,6 +1,8 @@
 import { Router } from 'express'
-import { userController } from './user.controller'
+import { createUserController, getAllUsersController } from './user.controller'
+import { validateCreateUser } from './user.validators'
 
 export const router = Router()
 
-router.get('/', userController)
+router.get('/', getAllUsersController)
+router.post('/', [validateCreateUser], createUserController)

@@ -3,7 +3,7 @@ import config from '../config'
 import { logger } from '../logger/logger'
 
 const pool = mysql.createPool(config.database.URL)
-export const query = (sql: string, values?: any) =>
+export const query = <T>(sql: string, values?: T) =>
   new Promise((resolve, reject) => {
     pool.getConnection((err, connection) => {
       if (err) {
